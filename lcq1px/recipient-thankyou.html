@@ -1,0 +1,39 @@
+<html>
+
+<body>
+	1 px is fired.
+<script>
+var STTAF_SITEACTION = {
+        PASSCODE_PARAM_NAME:'taf_c',
+        PASSCODE_COOKIE_NAME: 'st_passcode',
+        pixelURL: '//api.shoppr.com/rewards/site-action?taf_c=',
+        waitCounter: 0,
+        getURIParameter:function(name){
+            name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp( regexS );
+            var results = regex.exec( window.location.href );
+            if( results == null )
+                return null;
+            else
+                return results[1];
+        },
+
+        fireSTPixel: function(){
+            var passcode = STTAF_SITEACTION.getURIParameter(STTAF_SITEACTION.PASSCODE_PARAM_NAME);
+            if(passcode != null && passcode!=""){
+                var imgEle = document.createElement("img");
+                imgEle.setAttribute("border","0");
+                imgEle.setAttribute("width","1px");
+                imgEle.setAttribute("height","1px");
+                imgEle.setAttribute("alt","SocialTwist Tell-a-Friend");
+                imgEle.setAttribute("src",STTAF_SITEACTION.pixelURL+passcode);
+				document.body.appendChild(imgEle);
+            }
+        }
+};
+
+STTAF_SITEACTION.fireSTPixel();
+</script>
+</body>
+</html>

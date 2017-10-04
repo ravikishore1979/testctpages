@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<!-- <script type='text/javascript' src='https://content-dev.socialtwist.com/IntroPageTemplate/intropage/js/rlp.js?wid=201409155-21&rid=1000018&lp=rlp'></script> -->
+<!-- <script type='text/javascript' src='https://content-dev.socialtwist.com/shoppr/IntroPageTemplate/intropage/js/rlp.js?wid=201409155-21&rid=1000018&lp=rlp'></script> -->
+<script id="st_rlp" type='text/javascript' src='http://taf.shoppr.com/rlp.js?wid=201409155-21&rid=1000018&lp=rlp'></script>
+
+<!--<link type = 'text/css' href = 'https://content-dev.socialtwist.com/IntroPageTemplate/intropage/css/prp.css' rel = 'stylesheet' />-->
+<!--<img alt='Refer Now - SocialTwist' style='border:0;padding:0;margin:0;' src='http://images-dev.socialtwist.com/2016021714284-9/button.png' id='st_cta_btn' /> -->
+
+<div onclick="gotoThankyou()">Go to thankyou page to fire 1 px.</div>
+<script>
+ function getURIParameter(name){
+            name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+            var regexS = "[\\?&]"+name+"=([^&#]*)";
+            var regex = new RegExp( regexS );
+            var results = regex.exec( window.location.href );
+            if( results == null )
+                return null;
+            else
+                return results[1];
+        }
+ function gotoThankyou(){
+        var taf_c = getURIParameter("taf_c");
+        if(taf_c != null){
+                window.open("recipient-thankyou.html?taf_c="+taf_c ,"_blank");
+        }else{
+                alert("taf_c not present");
+        }
+ }
+</script>
+
+
+</body>
+
+</html>
